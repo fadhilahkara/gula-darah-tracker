@@ -1,0 +1,35 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0D1117;
+  --surface: #161B22;
+  --surface2: #1C2330;
+  --border: #2A3441;
+  --ink: #E6EDF3;
+  --muted: #7D8590;
+  --green: #3FB950;
+  --green-dim: rgba(63,185,80,0.12);
+  --yellow: #D29922;
+  --yellow-dim: rgba(210,153,34,0.12);
+  --red: #F85149;
+  --red-dim: rgba(248,81,73,0.12);
+  --blue: #58A6FF;
+  --blue-dim: rgba(88,166,255,0.12);
+}
+
+html, body { height: 100%; }
+
+body {
+  font-family: 'Outfit', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+input[type="number"] { -moz-appearance: textfield; }
+
+@media print {
+  body { background: white; color: black; }
+}
