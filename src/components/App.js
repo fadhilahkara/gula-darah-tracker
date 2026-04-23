@@ -1,11 +1,13 @@
 'use client'
 import { useState } from 'react'
 import InputPage from './InputPage'
+import MealsPage from './MealsPage'
 import DailyReport from './DailyReport'
 import MonthlyReport from './MonthlyReport'
 
 const TABS = [
   { id: 'input',   label: '✏️ Input' },
+  { id: 'meals',   label: '🍽️ Makanan' },
   { id: 'daily',   label: '📅 Harian' },
   { id: 'monthly', label: '📊 Bulanan' },
 ]
@@ -50,6 +52,7 @@ export default function App() {
       {/* PAGES */}
       <div style={{ maxWidth: 680, margin: '0 auto', padding: '24px 16px 60px' }}>
         {tab === 'input'   && <InputPage />}
+        {tab === 'meals'   && <MealsPage />}
         {tab === 'daily'   && <DailyReport />}
         {tab === 'monthly' && <MonthlyReport />}
       </div>

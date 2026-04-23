@@ -12,15 +12,33 @@ export function saveAll(data) {
 
 export function getEntry(date) {
   const d = loadAll()
-  return d[date] || { pagi: null, siang: null, malam: null }
+  return d[date] || { pagi: null, siang: null, malam: null, meals: [] }
 }
 
 export function setEntry(date, type, val) {
   const d = loadAll()
-  if (!d[date]) d[date] = { pagi: null, siang: null, malam: null }
+  if (!d[date]) d[date] = { pagi: null, siang: null, malam: null, meals: [] }
+  if (!d[date].meals) d[date].meals = []
   d[date][type] = val
   saveAll(d)
   return d
+}
+
+// ── Meals ──
+export function addMeal(date, meal) {
+  // meal = { id, time, name, carbs, notes }
+  const d = loadAll()
+  if (!d[date]) d[date] = { pagi: null, siang: null, malam: null, meals: [] }
+  if (!d[date].meals) d[date].meals = []
+  d[date].meals.push(meal)
+  saveAll(d)
+}
+
+export function deleteMeal(date, mealId) {
+  const d = loadAll()
+  if (!d[date]?.meals) return
+  d[date].meals = d[date].meals.filter(m => m.id !== mealId)
+  saveAll(d)
 }
 
 export function getDaysInMonth(year, month) {
